@@ -1,4 +1,4 @@
-from sqlalchemy import Table, Column, String, ForeignKeyConstraint, PrimaryKeyConstraint
+from sqlalchemy import Boolean, Table, Column, String, ForeignKeyConstraint, PrimaryKeyConstraint
 from src.db.base import Base
 
 t_user_achievement = Table(
@@ -15,6 +15,7 @@ t_user_insurance_module = Table(
     "user_insurance_module", Base.metadata,
     Column("user_id", String(20), primary_key=True, nullable=False),
     Column("insurance_module_id", String(20), primary_key=True, nullable=False),
+    Column("status", Boolean, primary_key=False, nullable=False),
     ForeignKeyConstraint(["insurance_module_id"], ["insurance_module.id"], name="user_insurance_module_insurance_module_id_fkey"),
     ForeignKeyConstraint(["user_id"], ["USER.id"], name="user_insurance_module_user_id_fkey"),
     PrimaryKeyConstraint("user_id", "insurance_module_id", name="user_insurance_module_pkey")
