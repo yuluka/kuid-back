@@ -1,6 +1,6 @@
 import datetime
 from typing import List
-from sqlalchemy import Boolean, CHAR, Column, DateTime, ForeignKeyConstraint, Integer, Numeric, PrimaryKeyConstraint, String, Table, UniqueConstraint
+from sqlalchemy import Boolean, CHAR, Column, Date, DateTime, ForeignKeyConstraint, Integer, Numeric, PrimaryKeyConstraint, String, Table, UniqueConstraint
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from src.db.base import Base
 from .associations import t_user_achievement, t_user_insurance_module, t_user_reward
@@ -26,7 +26,7 @@ class USER(Base):
     password: Mapped[str] = mapped_column(String(100))
     score: Mapped[int] = mapped_column(Integer)
     address: Mapped[str] = mapped_column(String(100))
-    birth_date: Mapped[datetime.datetime] = mapped_column(DateTime)
+    birth_date: Mapped[datetime.date] = mapped_column(Date)
 
     achievement: Mapped[List["Achievement"]] = relationship("Achievement", secondary=t_user_achievement, back_populates="user")
     insurance_module: Mapped[List["InsuranceModule"]] = relationship("InsuranceModule", secondary=t_user_insurance_module, back_populates="user")
