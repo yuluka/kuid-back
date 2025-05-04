@@ -3,6 +3,8 @@ from typing import List
 from sqlalchemy import Integer,PrimaryKeyConstraint, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from src.db.base import Base
+from .associations import t_user_insurance_module
+
 
 # from .user import USER
 
@@ -17,4 +19,4 @@ class InsuranceModule(Base):
     description: Mapped[str] = mapped_column(String(1000))
     monthly_price: Mapped[int] = mapped_column(Integer)
 
-    user: Mapped[List["USER"]] = relationship("USER", secondary="user_insurance_module", back_populates="insurance_module")
+    user: Mapped[List["USER"]] = relationship("USER", secondary=t_user_insurance_module, back_populates="insurance_module")
