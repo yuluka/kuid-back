@@ -2,3 +2,5 @@ docs/DB/*
 
 venv
 .env
+
+__pycache__/

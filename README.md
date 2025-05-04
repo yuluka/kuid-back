@@ -25,3 +25,13 @@ Con nosotros, **protegerse deja de ser un trámite** y se convierte en una exper
 Por el momento, **KÜID** se encuentra en su etapa de validación y evaluación, por lo que está disonible un MVP funcional que busca familiarizar a nuevos usuarios con esta propuesta tan innovadora, y enamorarlos de nuestra visión sin límites.
 
 Este repositorio contiene la lógica de negocio del sistema. Se encuentra desarrollado en FastAPI.
+
+--- 
+
+## Ejecución
+
+Para la ejecución del proyecto, después de la creación del virtual environment y la instalación de las dependencias especificadas en [`requirements.txt`](requirements.txt), se debe usar el comando:
+
+```bash
+fastapi dev src/main.py
+```
