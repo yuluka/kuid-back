@@ -30,8 +30,37 @@ Este repositorio contiene la lógica de negocio del sistema. Se encuentra desarr
 
 ## Ejecución
 
-Para la ejecución del proyecto, después de la creación del virtual environment y la instalación de las dependencias especificadas en [`requirements.txt`](requirements.txt), se debe usar el comando:
+Para la ejecución del proyecto, primero se crea y se activa el virtual environment
+
+(windows: puede ser 'python3' o 'python' or 'py') 
+
+```bash
+python3 -m venv venv
+venv\Scripts\activate
+```
+
+Se instalan las dependencias especificadas en [`requirements.txt`](requirements.txt) 
+
+```bash
+pip install -r requirements.txt
+```
+
+Además se crea un archivo .env, que contenga la URL de la base de datos. Actualmente puede ser local. Agrega esto al archivo y guardalo 
+
+```bash
+DATABASE_URL=sqlite:///./local_database.db
+```
+
+Finalmente, para correr la aplicación se debe usar el comando:
+
+```bash
+uvicorn src.main:app
+```
+
+O también con el comando:
 
 ```bash
 fastapi dev src/main.py
 ```
+
+Cuando ingreses al login, ve a la opción de "registrarte" y registrate como en una aplicación cualquiera, correo y contraeseña, y luego pasas al login ahora si para ingresar
