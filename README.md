@@ -51,6 +51,8 @@ Además se crea un archivo .env, que contenga la URL de la base de datos. Actual
 DATABASE_URL=sqlite:///./local_database.db
 ```
 
+Además, debes crear este archivo .db, con base en el archivo sql que está en la carpeta docs. Para crearlo puedes importar el SQL usando DB Browser y crear la base de datos .db desde ahí
+
 Finalmente, para correr la aplicación se debe usar el comando:
 
 ```bash
