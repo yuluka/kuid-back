@@ -30,7 +30,39 @@ Este repositorio contiene la lógica de negocio del sistema. Se encuentra desarr
 
 ## Ejecución
 
-Para la ejecución del proyecto, después de la creación del virtual environment y la instalación de las dependencias especificadas en [`requirements.txt`](requirements.txt), se debe usar el comando:
+Para la ejecución del proyecto, primero se crea y se activa el virtual environment:
+
+```bash
+python3 -m venv venv
+venv\Scripts\activate
+```
+
+Se instalan las dependencias especificadas en [`requirements.txt`](requirements.txt):
+
+```bash
+pip install -r requirements.txt
+```
+
+Además se crea un archivo .env, que contenga las variables de entorno usadas en el proyecto:
+
+```bash
+DATABASE_URL=db_url
+GROQ_API_KEY=groq_api_key
+OPENAI_API_KEY=openai_api_key
+COHERE_API_KEY=cohere_api_key
+MODEL=deepseek-r1-distill-llama-70b
+LANGUAGE=ES
+```
+
+Además, debes crear este archivo .db, con base en el archivo sql que está en la carpeta docs. Para crearlo puedes importar el SQL usando DB Browser y crear la base de datos .db desde ahí:
+
+Finalmente, para correr la aplicación se debe usar el comando:
+
+```bash
+uvicorn src.main:app --reload
+```
+
+O también con el comando:
 
 ```bash
 fastapi dev src/main.py
