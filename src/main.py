@@ -14,7 +14,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:8080",
-        "https://kuid-pied.vercel.app/login",
+        "https://kuid-pied.vercel.app",
+        "https://kuid-juanlora1-icesieducos-projects.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
