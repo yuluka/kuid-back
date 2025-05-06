@@ -12,7 +12,10 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:8080",
+        "https://kuid-pied.vercel.app/login",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
