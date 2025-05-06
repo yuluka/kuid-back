@@ -4,6 +4,7 @@ from src.schemas.chat import ChatIn, ChatOut
 from src.services.rag_service import RAG
 from src.services.chatbot_service import Bot
 from dotenv import load_dotenv
+import re
 import os
 
 router = APIRouter(prefix="/chat", tags=["Chat"])
@@ -33,6 +34,7 @@ def ask_chat(chat_in: ChatIn) -> ChatOut:
 
     chatbot.message_history = messages
     answer: str = chatbot.chat(query)
+    answer = re.sub(r"<think>(.*?)</think>", "", answer, flags=re.DOTALL).strip()
 
     chat_out = ChatOut(
         query=query,

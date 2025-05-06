@@ -124,8 +124,6 @@ class Bot:
         for chunk in completion:
             response += chunk.choices[0].delta.content or ""
 
-        response = re.sub(r"<think>.*?</think>", "", response, flags=re.DOTALL).strip()
-
         self.message_history.append({"role": "assistant", "content": response})
 
         return response
