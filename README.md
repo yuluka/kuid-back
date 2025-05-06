@@ -24,46 +24,51 @@ Con nosotros, **protegerse deja de ser un trámite** y se convierte en una exper
 
 Por el momento, **KÜID** se encuentra en su etapa de validación y evaluación, por lo que está disonible un MVP funcional que busca familiarizar a nuevos usuarios con esta propuesta tan innovadora, y enamorarlos de nuestra visión sin límites.
 
-Este repositorio contiene la lógica de negocio del sistema. Se encuentra desarrollado en FastAPI.
+Este repositorio contiene la lógica de negocio del sistema que se encuentra en desarrollo y está preparada para brindar las funcionalidades básicas del sistema. Se encuentra desarrollado en FastAPI.
 
 --- 
 
 ## Ejecución
 
-Para la ejecución del proyecto, primero se crea y se activa el virtual environment:
+Si deseas ejecutar el proyecto de forma local, puedes hacerlo. Sin embargo, en este momento, el sistema se encuentra desplegado sobre la plataforma [Railway](https://railway.com/), en el dominio:
 
-```bash
-python3 -m venv venv
-venv\Scripts\activate
-```
+`kuid-back-production.up.railway.app`
 
-Se instalan las dependencias especificadas en [`requirements.txt`](requirements.txt):
+Puede encontrar un listado de los [endpoints expuestos acá](kuid-back-production.up.railway.app/docs).
 
-```bash
-pip install -r requirements.txt
-```
+Para la ejecución del proyecto en local se deben seguir los siguientes pasos:
 
-Además se crea un archivo .env, que contenga las variables de entorno usadas en el proyecto:
+1. Crea y activar el entorno virtual:
 
-```bash
-DATABASE_URL=db_url
-GROQ_API_KEY=groq_api_key
-OPENAI_API_KEY=openai_api_key
-COHERE_API_KEY=cohere_api_key
-MODEL=deepseek-r1-distill-llama-70b
-LANGUAGE=ES
-```
+    ```bash
+    python3 -m venv venv
+    .\venv\Scripts\activate
+    ```
 
-Además, debes crear este archivo .db, con base en el archivo sql que está en la carpeta docs. Para crearlo puedes importar el SQL usando DB Browser y crear la base de datos .db desde ahí:
+2. Instalar las dependencias especificadas en [`requirements.txt`](requirements.txt):
 
-Finalmente, para correr la aplicación se debe usar el comando:
+    ```bash
+    pip install -r requirements.txt
+    ```
+    > **Nota:** La instalación puede tomar un tiempo debido a la cantidad de dependencias del proyecto.
 
-```bash
-uvicorn src.main:app --reload
-```
+3. Crear el archivo con las variables de entorno `.env`:
 
-O también con el comando:
+    ```
+    DATABASE_URL=db_url
+    GROQ_API_KEY=groq_api_key
+    OPENAI_API_KEY=openai_api_key
+    COHERE_API_KEY=cohere_api_key
+    MODEL=deepseek-r1-distill-llama-70b
+    LANGUAGE=ES
+    ```
 
-```bash
-fastapi dev src/main.py
-```
+4. Crear la base de datos:
+
+    Para la creación de la base de datos se puede hacer uso del [script de creación](docs/DB/db_creation.sql).
+
+5. Ejecutar
+
+    ```bash
+    uvicorn src.main:app --reload
+    ```
